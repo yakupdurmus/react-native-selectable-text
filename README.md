@@ -77,7 +77,7 @@ import { SelectableText } from "@astrocoders/react-native-selectable-text";
 | **onSelection** | Called when the user taps in a item of the selection menu | ({ eventType: string, content: string, selectionStart: int, selectionEnd: int }) => void | () => {} |
 | **menuItems** | context menu items | array(string) | [] |
 | **style** | additional styles to be applied to text | Object | null |
-| **highlights** | array of text ranges that should be highlighted with an optional id | array({ id: string, start: int, end: int }) | [] |
-| **highlightColor** | highlight color |string | null |
+| **highlights** | array of text ranges that should be highlighted with an optional id | array({ id: string, start: int, end: int,backgroundColor: string }) | [] |
+<!-- | **highlightColor** | highlight color |string | null | -->
 | **onHighlightPress** | called when the user taps the highlight  |(id: string) => void | () => {} |
 | **appendToChildren** | element to be added in the last line of text | ReactNode | null |

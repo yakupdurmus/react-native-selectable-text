@@ -36,10 +36,10 @@ const mapHighlightsRanges = (value, highlights) => {
 
   const data = [{ isHighlight: false, text: value.slice(0, combinedHighlights[0].start) }]
 
-  combinedHighlights.forEach(({ start, end }, idx) => {
+  combinedHighlights.forEach(({ start, end,backgroundColor }, idx) => {
     data.push({
       isHighlight: true,
-      backgroundColor:highlights.backgroundColor,
+      backgroundColor:backgroundColor,
       text: value.slice(start, end),
     })
 
