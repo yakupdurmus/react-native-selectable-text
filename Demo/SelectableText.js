@@ -27,7 +27,7 @@ const combineHighlights = memoize(numbers => {
 
 /**
  * value: string
- * highlights: array({start: int, end: int, id: any})
+ * highlights: array({start: int, end: int, id: any,backgroubdcolor : string})
  */
 const mapHighlightsRanges = (value, highlights) => {
   const combinedHighlights = combineHighlights(highlights)
@@ -39,6 +39,7 @@ const mapHighlightsRanges = (value, highlights) => {
   combinedHighlights.forEach(({ start, end }, idx) => {
     data.push({
       isHighlight: true,
+      backgroundColor:highlights.backgroundColor,
       text: value.slice(start, end),
     })
 
@@ -63,7 +64,7 @@ const mapHighlightsRanges = (value, highlights) => {
  * ...TextProps
  * onSelection: ({ content: string, eventType: string, selectionStart: int, selectionEnd: int }) => void
  * children: ReactNode
- * highlights: array({ id, start, end })
+ * highlights: array({ id, start, end, backgroubdcolor })
  * highlightColor: string
  * onHighlightPress: string => void
  */
@@ -101,14 +102,14 @@ export const SelectableText = ({ onSelection, onHighlightPress, value, children,
     >
       <Text selectable key={v4()}>
         {props.highlights && props.highlights.length > 0
-          ? mapHighlightsRanges(value, props.highlights).map(({ id, isHighlight, text }) => (
+          ? mapHighlightsRanges(value, props.highlights).map(({ id, isHighlight, text,backgroundColor }) => (
               <Text
                 key={v4()}
                 selectable
                 style={
                   isHighlight
                     ? {
-                        backgroundColor: props.highlightColor,
+                        backgroundColor: backgroundColor,
                       }
                     : {}
                 }
