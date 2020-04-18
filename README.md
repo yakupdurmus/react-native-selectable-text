@@ -37,7 +37,7 @@ import { SelectableText } from "@astrocoders/react-native-selectable-text";
 
 ### Mostly automatic installation
 
-`$ react-native link https://github.com/yakuppdurmus/react-native-selectable-text.git`
+`$ react-native link @astrocoders/react-native-selectable-text`
 
 ### Manual installation
 
