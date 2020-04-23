@@ -109,7 +109,7 @@ export const SelectableText = ({ onSelection, onHighlightPress, value, children,
                 selectable
                 style={
                   isHighlight
-                    ? {...textStyle}
+                    ? (isTitle ? {fontSize:40,lineHeight:40,...textStyle} : {...textStyle})
                     : {}
                 }
                 onPress={() => {
