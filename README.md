@@ -31,6 +31,16 @@ import { SelectableText } from "@astrocoders/react-native-selectable-text";
 />;
 ```
 
+##Highlights Props Örneği
+
+isTitle true olduğunda yazı alt satıra geçer 
+
+```javascript
+const highlights = [
+  { id: "test", start: 0, end: 52,isTitle:true,textStyle:{backgroundColor: '#a0a',fontSize:50,lineHeight:50,} }
+]
+```
+
 ## Getting started
 
 `$ npm install https://github.com/yakuppdurmus/react-native-selectable-text.git --save`
@@ -77,7 +87,7 @@ import { SelectableText } from "@astrocoders/react-native-selectable-text";
 | **onSelection** | Called when the user taps in a item of the selection menu | ({ eventType: string, content: string, selectionStart: int, selectionEnd: int }) => void | () => {} |
 | **menuItems** | context menu items | array(string) | [] |
 | **style** | additional styles to be applied to text | Object | null |
-| **highlights** | array of text ranges that should be highlighted with an optional id | array({ id: string, start: int, end: int,backgroundColor: string }) | [] |
+| **highlights** | array of text ranges that should be highlighted with an optional id | array({ id: string, start: int, end: int,isTitle:true,textStyle: Object }) | [] |
 <!-- | **highlightColor** | highlight color |string | null | -->
 | **onHighlightPress** | called when the user taps the highlight  |(id: string) => void | () => {} |
 | **appendToChildren** | element to be added in the last line of text | ReactNode | null |

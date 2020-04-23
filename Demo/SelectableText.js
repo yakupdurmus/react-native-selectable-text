@@ -36,10 +36,11 @@ const mapHighlightsRanges = (value, highlights) => {
 
   const data = [{ isHighlight: false, text: value.slice(0, combinedHighlights[0].start) }]
 
-  combinedHighlights.forEach(({ start, end,backgroundColor }, idx) => {
+  combinedHighlights.forEach(({ start, end,textStyle,isTitle }, idx) => {
     data.push({
       isHighlight: true,
-      backgroundColor:backgroundColor,
+      textStyle:textStyle,
+      isTitle:isTitle,
       text: value.slice(start, end),
     })
 
@@ -102,15 +103,13 @@ export const SelectableText = ({ onSelection, onHighlightPress, value, children,
     >
       <Text selectable key={v4()}>
         {props.highlights && props.highlights.length > 0
-          ? mapHighlightsRanges(value, props.highlights).map(({ id, isHighlight, text,backgroundColor }) => (
+          ? mapHighlightsRanges(value, props.highlights).map(({ id, isHighlight, text,textStyle,isTitle }) => (
               <Text
                 key={v4()}
                 selectable
                 style={
                   isHighlight
-                    ? {
-                        backgroundColor: backgroundColor,
-                      }
+                    ? {...textStyle}
                     : {}
                 }
                 onPress={() => {
@@ -119,7 +118,7 @@ export const SelectableText = ({ onSelection, onHighlightPress, value, children,
                   }
                 }}
               >
-                {text}
+                {text + (isTitle ? '\n' : '')}
               </Text>
             ))
           : value}
