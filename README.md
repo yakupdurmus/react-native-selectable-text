@@ -31,7 +31,7 @@ import { SelectableText } from "@astrocoders/react-native-selectable-text";
 />;
 ```
 
-##Highlights Props Örneği
+## Highlights Props Örneği
 
 isTitle true olduğunda yazı alt satıra geçer 
 
